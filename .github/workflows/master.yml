@@ -16,7 +16,7 @@ jobs:
           go-version: '1.17.1'
 
       - name: Build app
-        run: go build "-w" Server.go
+        run: go build Server.go
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
