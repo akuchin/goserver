@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"net"
 	"net/http"
 	"os"
 	"time"
@@ -39,5 +40,7 @@ func prn(s string, writers ...io.Writer) {
 
 func main() {
 	var h PrintHandler
-	log.Fatal(http.ListenAndServe(":9001", h))
+	ln, _ := net.Listen("tcp", ":9001")
+	log.Fatal(http.Serve(ln, h))
+	//log.Fatal(http.ListenAndServe(":9001", h))
 }
