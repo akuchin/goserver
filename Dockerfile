@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM photon:latest
 
 COPY Server .
 
