@@ -1,8 +1,6 @@
-FROM alpine:latest
+FROM ubuntu:latest
 
 COPY Server .
-
-RUN apk add --no-cache bash
 
 EXPOSE 9001
 
