@@ -32,6 +32,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: temak/goserver:latest
+          tags: temak/goserver:${{ github.sha }}
 
 
