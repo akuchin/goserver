@@ -1,4 +1,4 @@
-FROM photon:latest
+FROM alpine:latest
 
 COPY Server .
 
