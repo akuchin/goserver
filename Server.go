@@ -16,7 +16,7 @@ func (h PrintHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	start := time.Now()
 	writer := w
 
-	request := fmt.Sprintf("%s %s %s\n", req.Method, req.URL.Path, req.Proto)
+	request := fmt.Sprintf("%s %s %s\n", req.Method, req.URL, req.Proto)
 	prn(request, writer, os.Stdout)
 
 	for k, v := range req.Header {
