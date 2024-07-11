@@ -23,11 +23,13 @@ func (h PrintHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 		header := fmt.Sprintf("%s : %s\n", k, v)
 		prn(header, writer, os.Stdout)
 	}
-	_, _ = io.Copy(writer, req.Body)
+	body, _ := io.ReadAll(req.Body)
+	//_, _ = io.Copy(writer, req.Body)
 	name, _ := os.Hostname()
 
 	prn(fmt.Sprintf("\nHostname: %s\n", name), writer, os.Stdout)
 	prn(fmt.Sprintf("%s %s\n", req.Host, req.RemoteAddr), writer, os.Stdout)
+	prn(fmt.Sprintf("\nBody: %s\n", body), writer, os.Stdout)
 	prn(fmt.Sprintf("Time: %f\n", time.Since(start).Seconds()), writer, os.Stdout)
 
 }
